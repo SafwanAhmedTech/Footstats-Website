@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="team-header">
+
+    <h1>{{ club.name }}</h1>
+
+    <img
+        src="{{ club.crest }}"
+        width="180"
+    >
+
+    <h2>{{ club.venue }}</h2>
+
+    <p>Coach:
+        {{ club.coach.name }}
+    </p>
+
+</div>
+
+<div class="top-section">
+
+    <div class="card">
+
+        <h2>League Statistics</h2>
+
+        <p><strong>Position:</strong> {{ position.position }}</p>
+        <p><strong>Points:</strong> {{ position.points }}</p>
+        <p><strong>Played:</strong> {{ position.playedGames }}</p>
+        <p><strong>Wins:</strong> {{ position.won }}</p>
+        <p><strong>Draws:</strong> {{ position.draw }}</p>
+        <p><strong>Losses:</strong> {{ position.lost }}</p>
+        <p><strong>Goal Difference:</strong> {{ position.goalDifference }}</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Current Form</h2>
+
+        <div class="form">
+
+            {% for result in form %}
+
+                <span class="form-box {{ result }}">
+                    {{ result }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<h2>Next Fixtures</h2>
+
+{% for match in fixtures %}
+
+<div class="card">
+
+    <h3>
+
+        {{ match.homeTeam.name }}
+
+        vs
+
+        {{ match.awayTeam.name }}
+
+    </h3>
+
+    <p>
+
+        {{ match.utcDate[:10] }}
+
+    </p>
+
+</div>
+{% endfor %}
+
+<h2>Recent Results</h2>
+
+{% for match in results %}
+
+<div class="card">
+
+    <h3>
+
+        {{ match.homeTeam.name }}
+
+        vs
+
+        {{ match.awayTeam.name }}
+
+    </h3>
+
+    <p>
+
+        {{ match.score.fullTime.home }}
+
+        -
+
+        {{ match.score.fullTime.away }}
+
+    </p>
+
+</div>
+
+{% endfor %}
+
+
+<h2>Squad</h2>
+
+<div class="squad-grid">
+
+{% if squad %}
+
+    <div class="card">
+
+        <h3>🧤 Goalkeepers</h3>
+
+        {% for player in squad %}
+            {% if player.position == "Goalkeeper" %}
+                <p>{{ player.name }}</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h3>🛡 Defenders</h3>
+
+        {% for player in squad %}
+            {% if player.position == "Defence" or player.position == "Defender" %}
+                <p>{{ player.name }}</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h3>⚙ Midfielders</h3>
+
+        {% for player in squad %}
+            {% if player.position == "Midfield" or player.position == "Midfielder" %}
+                <p>{{ player.name }}</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+    <div class="card">
+
+        <h3>⚽ Forwards</h3>
+
+        {% for player in squad %}
+            {% if player.position == "Offence"
+               or player.position == "Forward"
+               or player.position == "Attacker" %}
+                <p>{{ player.name }}</p>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% else %}
+
+<div class="no-squad">
+
+    <h3>Squad data unavailable</h3>
+
+    <p>
+        Unfortunately, Football-Data.org does not provide squad information for teams outside the Premier League on the free plan.
+    </p>
+
+</div>
+
+{% endif %}
+
+{% endblock %}
