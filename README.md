@@ -156,7 +156,7 @@ Potential future features include:
 
 ## 👨‍💻 Author
 
-Created by **YOUR NAME**
+Created by **Safwan Ahmed**
 
 This project was developed to improve my skills in:
 
