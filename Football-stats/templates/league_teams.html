@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>{{ league }}</h1>
+
+<div class="team-grid">
+
+{% for team in teams %}
+
+<a href="/team/{{ team.id }}" class="team-card">
+
+    <img
+        src="{{ team.crest }}"
+        class="team-logo"
+    >
+
+    <h3>{{ team.name }}</h3>
+
+</a>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FootStats</title>
+        <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+        >
+    </head>
+    <body>
+        <nav>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/teams">Teams</a>
+                <a href="/table">League Table</a>
+                <a href="/fixtures">Fixtures</a>
+                <a href="/about">About</a>
+                <a href="/results">Results</a>
+                <a href="/scorers">Top Scorers</a>
+            </div>
+            <form action="/search" method="GET">
+                <input
+                    type="text"
+                    name="team"
+                    placeholder="Search team..."
+                >
+                <button type="submit">
+                    Search
+                </button>
+            </form>
+        </nav>
+        <hr>
+        <div class="container">
+
+            {% block body %}
+
+            {% endblock %}
+
+        </div>
+    </body>
+</html>
