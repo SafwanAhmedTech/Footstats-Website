@@ -68,6 +68,7 @@ football-stats/
 │   └── images/
 │
 ├── templates/
+│   ├── about.html
 │   ├── layout.html
 │   ├── home.html
 │   ├── fixtures.html
