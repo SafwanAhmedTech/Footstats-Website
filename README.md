@@ -19,6 +19,7 @@ The application allows users to explore clubs from Europe's top leagues, view fi
 - 👥 Squad information (where available on the Football-Data.org free plan)
 - 💜 Custom dark football-themed user interface
 - ⚡ Built-in caching to reduce API requests and improve performance
+- ⚠️ Error pages 404 and 500 in place in case of user error
 
 ---
 
