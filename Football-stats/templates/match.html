@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>
+    {{ match.homeTeam.name }}
+    vs
+    {{ match.awayTeam.name }}
+</h1>
+
+<div class="card">
+
+    <h2>Date</h2>
+
+    <p>{{ match.formatted_date }}</p>
+
+    <p>{{ match.formatted_time }} UTC</p>
+
+</div>
+
+<div class="card">
+
+    <h2>Status</h2>
+
+    <p>{{ match.status }}</p>
+
+</div>
+
+<div class="card">
+
+    <h2>Competition</h2>
+
+    <p>{{ match.competition.name }}</p>
+
+</div>
+
+<div class="card">
+
+    <h2>Matchday</h2>
+
+    <p>{{ match.matchday }}</p>
+
+</div>
+
+{% endblock %}

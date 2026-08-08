@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Select a League</h1>
+
+<div class="league-grid">
+
+    {% for code, league in leagues.items() %}
+
+        <a href="/teams/{{ code }}" class="league-card">
+
+            {{ league }}
+
+        </a>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

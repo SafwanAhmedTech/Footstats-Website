@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Premier League Top Scorers</h1>
+
+{% for player in scorers %}
+
+<div class="fixture-card">
+
+    <h2>{{ player.player.name }}</h2>
+
+    <p>
+        Team:
+        {{ player.team.name }}
+    </p>
+
+    <p>
+        Goals:
+        {{ player.goals }}
+    </p>
+
+    <p>
+        Assists:
+        {{ player.assists }}
+    </p>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

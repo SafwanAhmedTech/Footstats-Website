@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Premier League Table</h1>
+
+<table>
+
+    <tr>
+        <th>Pos</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Points</th>
+    </tr>
+
+    {% for team in standings %}
+
+    <tr>
+        <td>{{ team.position }}</td>
+        <td>{{ team.team.name }}</td>
+        <td>{{ team.playedGames }}</td>
+        <td>{{ team.points }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
